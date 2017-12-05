@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Results</title>
+
+    {% load static %}
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+    <script src="{% static 'polls/float-panel.js' %}"></script>
+</head>
+<body>
+
+<h1 style="text-align: center; font-size:30px; font-weight:bold;">{{ question.question_text }}</h1>
+
+<div class="collection slideanim">
+    {% for choice in question.choice_set.all %}
+    <div class="collection-item"> {{ choice.choice_text }} 
+		<span class="new badge" data-badge-caption="">{{ choice.votes }} vote{{ choice.votes|pluralize }}</span>
+	</div>
+    {% endfor %}
+
+    <a  class="collection-item active" href="{% url 'polls:detail' question.id %}">Vote again?</a>
+    <a  class="collection-item active" href="/polls">Back to questions</a>
+</div>
+
+</body>
+</html>

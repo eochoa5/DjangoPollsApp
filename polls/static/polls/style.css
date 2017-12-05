@@ -1,0 +1,53 @@
+body {
+    background: linear-gradient(0deg,rgba(37, 41, 56,0.9),rgba(37, 41, 56,0.9)),
+    url(images/a.png) no-repeat;
+    background-size: cover;
+    width:100%;
+    height: 100vh;
+    color:white;
+}
+
+h1{font-size: 30px;}
+
+.collection{width: 80%; text-align: center; margin: 0 auto; font-weight: bold;
+}
+
+.collection > div{color: #26a69a;}
+
+#myForm{
+    margin-left: 20%;
+}
+
+[type="radio"]:not(:checked)+label, [type="radio"]:checked+label{
+    font-size:28px;
+}
+
+/* animation on scroll*/
+
+.slideanim {
+    visibility:hidden;
+    visibility:visible\9;/*For old IE browsers IE6-8 */
+}
+.slideanim.slide {
+    visibility: visible;
+    animation: slide 1s;
+}
+.slideanim::after {
+    /* useful when its child elements are float:left; */
+    content: "";
+    display: table;
+    clear: both;
+}
+@keyframes slide {
+    0% {
+        opacity: 0;
+        transform: translateY(50%);
+        -ms-transform: translateY(50%);
+        -webkit-transform: translateY(50%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); -ms-transform: translateY(0); -webkit-transform: translateY(0);
+    }
+}
+
